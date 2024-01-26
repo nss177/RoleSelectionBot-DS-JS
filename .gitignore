@@ -3,3 +3,6 @@ dist
 .commandkit
 .env
 .DS_Store
+.ping.js
+.Role-selecter.js
+.show-channel.js

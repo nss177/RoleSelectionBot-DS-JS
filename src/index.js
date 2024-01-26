@@ -11,6 +11,7 @@ const client = new Client({
     ],
 });
 
+
 new CommandKit({
     client,
     commandsPath: `${__dirname}/commands`,
