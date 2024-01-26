@@ -18,14 +18,14 @@ const data = {
 async function run ({ interaction }) {
     const role = [
         {  
-            label: 'Ban',
-            description: 'Access blocked users',
-            Value: 'ban',
+            label: 'Ru',
+            description: 'Country: Russia',
+            Value: 'ru',
         },
         {  
-            label: 'Mute',
-            description: 'Closed users voice muted',
-            Value: 'mute',
+            label: 'Eu',
+            description: 'Country: Pendosyan',
+            Value: 'eu',
         },
     ];
 
@@ -49,12 +49,21 @@ async function run ({ interaction }) {
     
     const collector = reply.createMessageComponentCollector({
         ComponentType: ComponentType.StringSelect,
-        filter: (interaction) => i.user.id === interaction.user.id && i.customId === 'interaction.id',
+        filter: (i) => i.user.id === interaction.user.id && i.customId === interaction.id,
         time: 60_000,
     });
     collector.on('collect', (interaction) =>{
-        console.log(interacion.values);
+        if (!interaction.values.length) {
+            interaction.reply('You have emptied your selection');
+            return;
+        }
+
+        interaction.reply(
+            `You have now selected: ${interaction.values.join(', ')}`
+        )
+
     });
+
 }
 
 
